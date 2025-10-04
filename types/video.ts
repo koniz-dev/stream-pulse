@@ -37,3 +37,11 @@ export interface VideoActions {
 }
 
 export type VideoStore = VideoState & VideoActions;
+
+// VideoPlayer component props
+export interface VideoPlayerProps {
+  streamUrl: string | null;
+  className?: string;
+  onReady?: (player: any) => void;
+  onError?: (error: any) => void;
+}
