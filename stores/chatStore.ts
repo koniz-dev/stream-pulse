@@ -1,33 +1,116 @@
 import { create } from 'zustand';
-import type { ChatStore } from '@/types';
+import { ref, push, onValue, off, query, orderByChild, limitToLast } from 'firebase/database';
+import { database } from '@/lib/firebase';
 
-export const useChatStore = create<ChatStore>((set, get) => ({
+export interface ChatMessage {
+  id: string;
+  userId: string;
+  username: string;
+  message: string;
+  timestamp: number;
+  avatar?: string;
+}
+
+interface ChatState {
+  messages: ChatMessage[];
+  isLoading: boolean;
+  error: string | null;
+  isConnected: boolean;
+  
+  // Actions
+  sendMessage: (message: string, userId: string, username: string, avatar?: string) => Promise<void>;
+  loadMessages: () => void;
+  clearMessages: () => void;
+  setError: (error: string | null) => void;
+}
+
+export const useChatStore = create<ChatState>((set, get) => ({
   messages: [],
   isLoading: false,
   error: null,
   isConnected: false,
 
-  setMessages: (messages) => set({ messages }),
-  
-  addMessage: (message) => set((state) => ({
-    messages: [...state.messages, message]
-  })),
-  
-  updateMessage: (id, updates) => set((state) => ({
-    messages: state.messages.map(msg => 
-      msg.id === id ? { ...msg, ...updates } : msg
-    )
-  })),
-  
-  removeMessage: (id) => set((state) => ({
-    messages: state.messages.filter(msg => msg.id !== id)
-  })),
-  
-  setLoading: (loading) => set({ isLoading: loading }),
-  
-  setError: (error) => set({ error }),
-  
-  setConnected: (connected) => set({ isConnected: connected }),
-  
-  clearMessages: () => set({ messages: [] }),
+  sendMessage: async (message: string, userId: string, username: string, avatar?: string) => {
+    try {
+      set({ error: null });
+      
+      const newMessage: Omit<ChatMessage, 'id'> = {
+        userId,
+        username,
+        message: message.trim(),
+        timestamp: Date.now(),
+        avatar
+      };
+
+      const messagesRef = ref(database, 'chat/messages');
+      await push(messagesRef, newMessage);
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      set({ error: 'Failed to send message' });
+    }
+  },
+
+  loadMessages: () => {
+    try {
+      set({ isLoading: true, error: null });
+      
+      const messagesRef = ref(database, 'chat/messages');
+      const messagesQuery = query(
+        messagesRef,
+        orderByChild('timestamp'),
+        limitToLast(100) // Limit to last 100 messages
+      );
+
+      const unsubscribe = onValue(messagesQuery, (snapshot) => {
+        const messagesData = snapshot.val();
+        
+        if (messagesData) {
+          const messages: ChatMessage[] = Object.entries(messagesData).map(([id, data]: [string, any]) => ({
+            id,
+            ...data
+          }));
+          
+          set({ 
+            messages: messages.sort((a, b) => a.timestamp - b.timestamp),
+            isLoading: false,
+            isConnected: true
+          });
+        } else {
+          set({ 
+            messages: [],
+            isLoading: false,
+            isConnected: true
+          });
+        }
+      }, (error) => {
+        console.error('Error loading messages:', error);
+        set({ 
+          error: 'Failed to load messages',
+          isLoading: false,
+          isConnected: false
+        });
+      });
+
+      // Store unsubscribe function for cleanup
+      return unsubscribe;
+      
+    } catch (error) {
+      console.error('Error setting up messages listener:', error);
+      set({ 
+        error: 'Failed to connect to chat',
+        isLoading: false,
+        isConnected: false
+      });
+      return () => {}; // Return empty function on error
+    }
+  },
+
+  clearMessages: () => {
+    set({ messages: [] });
+  },
+
+  setError: (error: string | null) => {
+    set({ error });
+  }
 }));

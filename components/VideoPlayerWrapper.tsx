@@ -20,10 +20,6 @@ export default function VideoPlayerWrapper({
   className = ''
 }: VideoPlayerWrapperProps) {
 
-  const handlePlayerReady = (player: any) => {
-    console.log('Video player is ready:', player);
-  };
-
   const handlePlayerError = (error: any) => {
     console.error('Video player error:', error);
   };
@@ -43,7 +39,6 @@ export default function VideoPlayerWrapper({
       >
         <VideoPlayer
           streamUrl={streamUrl}
-          onReady={handlePlayerReady}
           onError={handlePlayerError}
           className="w-full"
         />
