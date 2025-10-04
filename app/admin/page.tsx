@@ -35,6 +35,28 @@ export default function AdminPage() {
             </Box>
 
             <Box>
+              <Link href="/admin/chat" style={{ textDecoration: 'none' }}>
+                <Button 
+                  variant="contained" 
+                  size="large" 
+                  fullWidth
+                  sx={{ 
+                    py: 2,
+                    fontSize: '1.1rem',
+                    '&:hover': {
+                      bgcolor: 'primary.dark'
+                    }
+                  }}
+                >
+                  💬 Chat Management
+                </Button>
+              </Link>
+              <Typography variant="body2" color="text.secondary" textAlign="center" mt={1}>
+                Monitor, search, and delete chat messages in real-time
+              </Typography>
+            </Box>
+
+            <Box>
               <Link href="/admin/debug" style={{ textDecoration: 'none' }}>
                 <Button 
                   variant="contained" 

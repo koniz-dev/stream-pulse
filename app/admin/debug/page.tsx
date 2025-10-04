@@ -14,6 +14,7 @@ import { FirebaseAuthDebug } from './components/FirebaseAuthDebug';
 import { CustomTokenDebug } from './components/CustomTokenDebug';
 import { VideoPlayerDebug } from './components/VideoPlayerDebug';
 import { SystemInfoDebug } from './components/SystemInfoDebug';
+import { ChatManagementDebug } from './components/ChatManagementDebug';
 
 export default function AdminDebugPage() {
   return (
@@ -74,6 +75,13 @@ export default function AdminDebugPage() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
               <VideoPlayerDebug />
+            </Paper>
+          </Grid>
+
+          {/* Chat Management */}
+          <Grid size={{ xs: 12 }}>
+            <Paper elevation={3} sx={{ p: 3 }}>
+              <ChatManagementDebug />
             </Paper>
           </Grid>
         </Grid>

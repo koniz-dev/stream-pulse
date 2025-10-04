@@ -1,61 +1,27 @@
 import { create } from 'zustand';
-import { ref, push, onValue, off, query, orderByChild, limitToLast, update } from 'firebase/database';
+import { ref, onValue, off, query, orderByChild, limitToLast, update } from 'firebase/database';
 import { database } from '@/lib/firebase';
+import { ChatMessage } from './chatStore';
 
-export interface ChatMessage {
-  id: string;
-  userId: string;
-  username: string;
-  message: string;
-  timestamp: number;
-  avatar?: string;
-  isDeleted?: boolean;
-  deletedAt?: number;
-  deletedBy?: string;
-}
-
-interface ChatState {
-  messages: ChatMessage[];
+interface AdminChatState {
+  allMessages: ChatMessage[];
   isLoading: boolean;
   error: string | null;
   isConnected: boolean;
   
   // Actions
-  sendMessage: (message: string, userId: string, username: string, avatar?: string) => Promise<void>;
-  loadMessages: () => void;
-  clearMessages: () => void;
-  deleteMessage: (messageId: string) => Promise<void>;
+  loadAllMessages: () => void;
+  deleteMessage: (messageId: string, deletedBy?: string) => Promise<void>;
   setError: (error: string | null) => void;
 }
 
-export const useChatStore = create<ChatState>((set, get) => ({
-  messages: [],
+export const useAdminChatStore = create<AdminChatState>((set, get) => ({
+  allMessages: [],
   isLoading: false,
   error: null,
   isConnected: false,
 
-  sendMessage: async (message: string, userId: string, username: string, avatar?: string) => {
-    try {
-      set({ error: null });
-      
-      const newMessage: Omit<ChatMessage, 'id'> = {
-        userId,
-        username,
-        message: message.trim(),
-        timestamp: Date.now(),
-        avatar
-      };
-
-      const messagesRef = ref(database, 'chat/messages');
-      await push(messagesRef, newMessage);
-      
-    } catch (error) {
-      console.error('Error sending message:', error);
-      set({ error: 'Failed to send message' });
-    }
-  },
-
-  loadMessages: () => {
+  loadAllMessages: () => {
     try {
       set({ isLoading: true, error: null });
       
@@ -63,34 +29,32 @@ export const useChatStore = create<ChatState>((set, get) => ({
       const messagesQuery = query(
         messagesRef,
         orderByChild('timestamp'),
-        limitToLast(100) // Limit to last 100 messages
+        limitToLast(200) // Load more messages for admin view
       );
 
       const unsubscribe = onValue(messagesQuery, (snapshot) => {
         const messagesData = snapshot.val();
         
         if (messagesData) {
-          const messages: ChatMessage[] = Object.entries(messagesData)
-            .map(([id, data]: [string, any]) => ({
-              id,
-              ...data
-            }))
-            .filter((message: ChatMessage) => !message.isDeleted); // Filter out soft deleted messages
+          const messages: ChatMessage[] = Object.entries(messagesData).map(([id, data]: [string, any]) => ({
+            id,
+            ...data
+          }));
           
           set({ 
-            messages: messages.sort((a, b) => a.timestamp - b.timestamp),
+            allMessages: messages.sort((a, b) => a.timestamp - b.timestamp),
             isLoading: false,
             isConnected: true
           });
         } else {
           set({ 
-            messages: [],
+            allMessages: [],
             isLoading: false,
             isConnected: true
           });
         }
       }, (error) => {
-        console.error('Error loading messages:', error);
+        console.error('Error loading all messages:', error);
         set({ 
           error: 'Failed to load messages',
           isLoading: false,
@@ -102,7 +66,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       return unsubscribe;
       
     } catch (error) {
-      console.error('Error setting up messages listener:', error);
+      console.error('Error setting up all messages listener:', error);
       set({ 
         error: 'Failed to connect to chat',
         isLoading: false,
@@ -110,10 +74,6 @@ export const useChatStore = create<ChatState>((set, get) => ({
       });
       return () => {}; // Return empty function on error
     }
-  },
-
-  clearMessages: () => {
-    set({ messages: [] });
   },
 
   deleteMessage: async (messageId: string, deletedBy?: string) => {
