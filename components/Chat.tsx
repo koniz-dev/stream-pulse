@@ -117,7 +117,16 @@ export default function Chat() {
   }
 
   return (
-    <Paper elevation={3} sx={{ height: 500, display: 'flex', flexDirection: 'column' }}>
+    <Paper 
+      elevation={3} 
+      sx={{ 
+        height: { xs: 400, sm: 500, lg: 600 }, 
+        display: 'flex', 
+        flexDirection: 'column',
+        borderRadius: 2,
+        overflow: 'hidden'
+      }}
+    >
       {/* Chat Header */}
       <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider' }}>
         <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -143,7 +152,24 @@ export default function Chat() {
       )}
 
       {/* Messages List */}
-      <Box sx={{ flex: 1, overflow: 'auto', p: 1 }}>
+      <Box sx={{ 
+        flex: 1, 
+        overflow: 'auto', 
+        p: { xs: 0.5, sm: 1 },
+        '&::-webkit-scrollbar': {
+          width: '6px',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'transparent',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(0,0,0,0.2)',
+          borderRadius: '3px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: 'rgba(0,0,0,0.3)',
+        },
+      }}>
         {messages.length === 0 && !isLoading ? (
           <Box sx={{ p: 3, textAlign: 'center' }}>
             <Typography variant="body2" color="text.secondary">
@@ -187,8 +213,13 @@ export default function Chat() {
       </Box>
 
       {/* Message Input */}
-      <Box sx={{ p: 2, borderTop: 1, borderColor: 'divider' }}>
-        <Box display="flex" gap={1}>
+      <Box sx={{ 
+        p: { xs: 1.5, sm: 2 }, 
+        borderTop: 1, 
+        borderColor: 'divider',
+        bgcolor: 'background.paper'
+      }}>
+        <Box display="flex" gap={1} alignItems="flex-end">
           <TextField
             fullWidth
             multiline
@@ -200,12 +231,29 @@ export default function Chat() {
             disabled={!isConnected || isSending}
             size="small"
             variant="outlined"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 2,
+                '&:hover .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'primary.main',
+                },
+              },
+            }}
           />
           <Button
             variant="contained"
             onClick={handleSendMessage}
             disabled={!newMessage.trim() || !isConnected || isSending}
-            sx={{ minWidth: 'auto', px: 2 }}
+            sx={{ 
+              minWidth: 'auto', 
+              px: 2,
+              borderRadius: 2,
+              height: '40px',
+              '&:hover': {
+                transform: 'scale(1.05)',
+              },
+              transition: 'transform 0.2s ease-in-out'
+            }}
           >
             {isSending ? <CircularProgress size={20} /> : <SendIcon />}
           </Button>
