@@ -10,7 +10,6 @@ import {
   Chip,
   Paper,
   Avatar,
-  Stack
 } from '@mui/material';
 import { VideoPlayerWrapper } from '@/components';
 
