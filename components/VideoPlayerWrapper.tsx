@@ -49,34 +49,6 @@ export default function VideoPlayerWrapper({
         />
       </Paper>
       
-      {/* Stream info */}
-      <Paper elevation={2} sx={{ mt: 2, p: 3, bgcolor: 'grey.100' }}>
-        <Typography variant="h6" component="h3" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          📡 Stream Information
-        </Typography>
-        <Stack spacing={1}>
-          <Box>
-            <Typography variant="body2" color="text.secondary" component="span">
-              <strong>Stream URL:</strong>{' '}
-            </Typography>
-            <Typography variant="body2" component="span" sx={{ 
-              fontFamily: 'monospace', 
-              bgcolor: 'grey.200', 
-              px: 1, 
-              py: 0.5, 
-              borderRadius: 1,
-              fontSize: '0.75rem'
-            }}>
-              {streamUrl}
-            </Typography>
-          </Box>
-          <Box display="flex" gap={1} flexWrap="wrap">
-            <Chip label="HLS Format" size="small" color="primary" variant="outlined" />
-            <Chip label="Video.js v8.23.4" size="small" color="secondary" variant="outlined" />
-            <Chip label="Live Streaming" size="small" color="success" variant="outlined" />
-          </Box>
-        </Stack>
-      </Paper>
     </Box>
   );
 }
