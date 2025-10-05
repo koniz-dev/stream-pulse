@@ -7,9 +7,6 @@ import {
   Card, 
   CardContent, 
   Grid,
-  Chip,
-  Paper,
-  Avatar,
 } from '@mui/material';
 import { Header } from '@/components';
 
@@ -37,8 +34,8 @@ export default function AboutPage() {
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto', lineHeight: 1.8, textAlign: 'justify' }}>
             StreamPulse is a cutting-edge live streaming platform that brings together the best of modern web technologies 
-            to deliver an exceptional viewing and interaction experience. Whether you're a content creator, educator, 
-            or entertainment enthusiast, StreamPulse provides the tools you need to connect with your audience in real-time. 
+            to deliver an exceptional viewing and interaction experience.             Whether you&apos;re a content creator, educator, 
+            or entertainment enthusiast, StreamPulse provides the tools you need to connect with your audience in real-time.
             Built with the latest technologies including Next.js, Video.js, Firebase, and Clerk, our platform ensures 
             high-quality streaming, seamless real-time chat, and secure user authentication.
           </Typography>

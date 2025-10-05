@@ -10,16 +10,9 @@ import {
   Skeleton,
   Fade,
   Alert,
-  Button,
-  IconButton,
-  Tooltip
+  Button
 } from '@mui/material';
 import { 
-  PlayArrow, 
-  Pause, 
-  VolumeUp, 
-  VolumeOff,
-  Fullscreen,
   Refresh
 } from '@mui/icons-material';
 import VideoPlayer from './VideoPlayer';
@@ -42,7 +35,6 @@ export default function VideoPlayerWrapper({
 }: VideoPlayerWrapperProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlayerError = (error: any) => {
     console.error('Video player error:', error);
@@ -186,12 +178,6 @@ export default function VideoPlayerWrapper({
                   fontWeight: 'bold',
                   animation: 'pulse 2s infinite'
                 }}
-              />
-              <Chip 
-                label="HLS" 
-                color="primary" 
-                size="small" 
-                variant="outlined"
               />
             </Stack>
           </Box>

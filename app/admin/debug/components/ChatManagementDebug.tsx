@@ -24,14 +24,12 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Divider,
   Stack,
   Switch,
   FormControlLabel
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
 
 export function ChatManagementDebug() {

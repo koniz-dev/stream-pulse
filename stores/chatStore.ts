@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { ref, push, onValue, off, query, orderByChild, limitToLast, update } from 'firebase/database';
+import { ref, push, onValue, query, orderByChild, limitToLast, update } from 'firebase/database';
 import { database } from '@/lib/firebase';
 
 export interface ChatMessage {
@@ -28,7 +28,7 @@ interface ChatState {
   setError: (error: string | null) => void;
 }
 
-export const useChatStore = create<ChatState>((set, get) => ({
+export const useChatStore = create<ChatState>((set) => ({
   messages: [],
   isLoading: false,
   error: null,

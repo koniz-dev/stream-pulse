@@ -5,7 +5,6 @@ import {
   Box, 
   Typography, 
   Button, 
-  Chip, 
   Stack,
   Alert,
   Accordion,
@@ -81,7 +80,7 @@ export function CustomTokenDebug() {
       const payload = JSON.parse(atob(parts[1]));
       
       return { header, payload };
-    } catch (err) {
+    } catch {
       return { error: 'Failed to decode JWT' };
     }
   };
@@ -186,10 +185,10 @@ export function CustomTokenDebug() {
         <Typography variant="subtitle2" gutterBottom>Instructions</Typography>
         <Stack spacing={1}>
           <Typography variant="body2" color="text.secondary">
-            1. Click "Test API Endpoint" to generate a custom token
+            1. Click &quot;Test API Endpoint&quot; to generate a custom token
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            2. Click "Test Direct Firebase" to test the token with Firebase
+            2. Click &quot;Test Direct Firebase&quot; to test the token with Firebase
           </Typography>
           <Typography variant="body2" color="text.secondary">
             3. Check JWT decode to see token contents

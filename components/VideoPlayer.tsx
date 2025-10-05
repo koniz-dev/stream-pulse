@@ -51,12 +51,9 @@ export default function VideoPlayer({
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
-  const isInitializedRef = useRef(false);
-  const [isPlayerReady, setIsPlayerReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
   const {
-    player,
     error,
     setReady,
     setPlaying,
@@ -70,7 +67,6 @@ export default function VideoPlayer({
 
   // Stable callbacks to prevent unnecessary re-renders
   const handlePlayerReady = useCallback((playerInstance: any) => {
-    setIsPlayerReady(true);
     setReady(true);
     setIsLoading(false);
     onReady?.(playerInstance);

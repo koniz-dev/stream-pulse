@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { UserStore } from '@/types';
 
-export const useUserStore = create<UserStore>((set, get) => ({
+export const useUserStore = create<UserStore>((set) => ({
   currentUser: null,
   isAuthenticated: false,
   isLoading: false,

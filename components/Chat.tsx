@@ -18,7 +18,6 @@ import {
   Chip,
   Alert,
   CircularProgress,
-  Divider
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -183,7 +182,7 @@ export default function Chat() {
           </Box>
         ) : (
           <List sx={{ p: 0 }}>
-            {messages.map((message, index) => (
+            {messages.map((message) => (
               <ListItem key={message.id} sx={{ px: 1, py: 0.5 }}>
                 <ListItemAvatar>
                   <Avatar 

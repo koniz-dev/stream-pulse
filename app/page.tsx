@@ -6,15 +6,11 @@ import {
   Grid,
   Typography,
   Paper,
-  Fade,
-  useTheme,
-  useMediaQuery
+  Fade
 } from '@mui/material';
 import { VideoPlayerWrapper, Chat, Header } from '@/components';
 
 export default function Home() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <Box sx={{ 

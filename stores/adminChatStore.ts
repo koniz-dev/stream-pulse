@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { ref, onValue, off, query, orderByChild, limitToLast, update } from 'firebase/database';
+import { ref, onValue, query, orderByChild, limitToLast, update } from 'firebase/database';
 import { database } from '@/lib/firebase';
 import { ChatMessage } from './chatStore';
 
@@ -15,7 +15,7 @@ interface AdminChatState {
   setError: (error: string | null) => void;
 }
 
-export const useAdminChatStore = create<AdminChatState>((set, get) => ({
+export const useAdminChatStore = create<AdminChatState>((set) => ({
   allMessages: [],
   isLoading: false,
   error: null,

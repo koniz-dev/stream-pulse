@@ -1,10 +1,7 @@
 'use client';
-
-import { useState } from 'react';
 import { 
   Box, 
   Typography, 
-  Button, 
   Chip, 
   Stack,
   Accordion,
@@ -14,7 +11,6 @@ import {
 } from '@mui/material';
 
 export function FirebaseConfigDebug() {
-  const [showRaw, setShowRaw] = useState(false);
 
   const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,

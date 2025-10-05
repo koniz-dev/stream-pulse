@@ -16,7 +16,7 @@ const initialPlayerState: VideoPlayer = {
   buffered: 0,
 };
 
-export const useVideoStore = create<VideoStore>((set, get) => ({
+export const useVideoStore = create<VideoStore>((set) => ({
   player: initialPlayerState,
   isLoading: false,
   error: null,

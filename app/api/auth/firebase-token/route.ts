@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
@@ -25,7 +25,7 @@ if (!getApps().length) {
   });
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     // Get the current user from Clerk
     const { userId } = await auth();
