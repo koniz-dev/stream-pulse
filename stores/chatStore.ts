@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { ref, push, onValue, query, orderByChild, limitToLast, update } from 'firebase/database';
 import { database } from '@/lib/firebase';
+import { logger } from '@/lib/logger';
 
 export interface ChatMessage {
   id: string;
@@ -50,7 +51,7 @@ export const useChatStore = create<ChatState>((set) => ({
       await push(messagesRef, newMessage);
       
     } catch (error) {
-      console.error('Error sending message:', error);
+      logger.error('Failed to send message', 'chat-store', error as Error);
       set({ error: 'Failed to send message' });
     }
   },
@@ -90,7 +91,7 @@ export const useChatStore = create<ChatState>((set) => ({
           });
         }
       }, (error) => {
-        console.error('Error loading messages:', error);
+        logger.error('Failed to load messages', 'chat-store', error as Error);
         set({ 
           error: 'Failed to load messages',
           isLoading: false,
@@ -102,7 +103,7 @@ export const useChatStore = create<ChatState>((set) => ({
       return unsubscribe;
       
     } catch (error) {
-      console.error('Error setting up messages listener:', error);
+      logger.error('Failed to setup messages listener', 'chat-store', error as Error);
       set({ 
         error: 'Failed to connect to chat',
         isLoading: false,
@@ -130,7 +131,7 @@ export const useChatStore = create<ChatState>((set) => ({
       await update(messageRef, updateData);
       
     } catch (error) {
-      console.error('Error soft deleting message:', error);
+      logger.error('Failed to soft delete message', 'chat-store', error as Error);
       set({ error: 'Failed to delete message' });
     }
   },

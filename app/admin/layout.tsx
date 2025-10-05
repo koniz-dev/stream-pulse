@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Admin Debug Panel - StreamPulse',
@@ -12,6 +13,7 @@ export default function AdminLayout({
 }) {
   return (
     <div className="admin-layout">
+      <Header />
       {children}
     </div>
   );

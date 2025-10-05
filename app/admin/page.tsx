@@ -78,21 +78,6 @@ export default function AdminPage() {
               </Typography>
             </Box>
 
-            <Box>
-              <Link href="/" style={{ textDecoration: 'none' }}>
-                <Button 
-                  variant="outlined" 
-                  size="large" 
-                  fullWidth
-                  sx={{ 
-                    py: 2,
-                    fontSize: '1.1rem'
-                  }}
-                >
-                  🏠 Back to Home
-                </Button>
-              </Link>
-            </Box>
           </Stack>
         </Paper>
       </Container>

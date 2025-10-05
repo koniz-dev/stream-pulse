@@ -28,13 +28,6 @@ export default function AdminChatPage() {
             <Alert severity="info">
               Please sign in to access the admin panel
             </Alert>
-            <Box mt={2}>
-              <Link href="/" style={{ textDecoration: 'none' }}>
-                <Button variant="contained">
-                  Go to Home
-                </Button>
-              </Link>
-            </Box>
           </Paper>
         </Container>
       </Box>
@@ -49,13 +42,6 @@ export default function AdminChatPage() {
             <Alert severity="warning">
               Access denied. Admin privileges required.
             </Alert>
-            <Box mt={2}>
-              <Link href="/" style={{ textDecoration: 'none' }}>
-                <Button variant="contained">
-                  Go to Home
-                </Button>
-              </Link>
-            </Box>
           </Paper>
         </Container>
       </Box>

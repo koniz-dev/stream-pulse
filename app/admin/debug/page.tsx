@@ -9,6 +9,7 @@ import {
   Alert,
   Divider
 } from '@mui/material';
+import { useUser } from '@clerk/nextjs';
 import { FirebaseConfigDebug } from './components/FirebaseConfigDebug';
 import { FirebaseAuthDebug } from './components/FirebaseAuthDebug';
 import { CustomTokenDebug } from './components/CustomTokenDebug';
@@ -17,6 +18,37 @@ import { SystemInfoDebug } from './components/SystemInfoDebug';
 import { ChatManagementDebug } from './components/ChatManagementDebug';
 
 export default function AdminDebugPage() {
+  const { user, isLoaded } = useUser();
+
+  // Security check: Only allow in development or for admin users
+  if (!isLoaded) {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography>Loading...</Typography>
+      </Box>
+    );
+  }
+
+  if (!user) {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Alert severity="error">
+          Access denied. Please sign in to access debug panel.
+        </Alert>
+      </Box>
+    );
+  }
+
+  // Additional security: Only allow in development environment
+  if (process.env.NODE_ENV === 'production') {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Alert severity="error">
+          Debug panel is not available in production environment.
+        </Alert>
+      </Box>
+    );
+  }
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'grey.50', py: 4 }}>
       <Container maxWidth="xl">

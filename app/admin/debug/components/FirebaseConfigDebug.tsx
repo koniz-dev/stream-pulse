@@ -101,17 +101,17 @@ export function FirebaseConfigDebug() {
         <Stack spacing={1}>
           <Box>
             <Typography variant="body2" color="text.secondary">
-              API Key starts with: {firebaseConfig.apiKey ? firebaseConfig.apiKey.substring(0, 10) + '...' : 'undefined'}
+              API Key: {firebaseConfig.apiKey ? '✅ Configured' : '❌ Missing'}
             </Typography>
           </Box>
           <Box>
             <Typography variant="body2" color="text.secondary">
-              Auth Domain: {firebaseConfig.authDomain || 'undefined'}
+              Auth Domain: {firebaseConfig.authDomain ? '✅ Configured' : '❌ Missing'}
             </Typography>
           </Box>
           <Box>
             <Typography variant="body2" color="text.secondary">
-              Project ID: {firebaseConfig.projectId || 'undefined'}
+              Project ID: {firebaseConfig.projectId ? '✅ Configured' : '❌ Missing'}
             </Typography>
           </Box>
         </Stack>

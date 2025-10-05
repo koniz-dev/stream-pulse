@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
+import { logger } from '@/lib/logger';
 
 // Initialize Firebase Admin SDK
 if (!getApps().length) {
@@ -44,7 +45,7 @@ export async function POST() {
 
     return NextResponse.json({ customToken });
   } catch (error) {
-    console.error('Error creating custom token:', error);
+    logger.error('Failed to create custom token', 'firebase-token-api', error as Error);
     return NextResponse.json(
       { error: 'Failed to create custom token' },
       { status: 500 }
