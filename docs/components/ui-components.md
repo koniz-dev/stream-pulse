@@ -2,18 +2,18 @@
 
 ## Overview
 
-StreamPulse sử dụng Material-UI (MUI) làm UI framework chính, kết hợp với Tailwind CSS cho styling. Các UI components được tổ chức trong thư mục `components/ui/` và `components/common/`.
+StreamPulse uses Material-UI (MUI) as the main UI framework, combined with Tailwind CSS for styling. UI components are organized in the `components/ui/` and `components/common/` directories.
 
 ## Header Component
 
 ### Overview
 
-`Header` component cung cấp navigation bar chính cho ứng dụng, bao gồm authentication, navigation menu và responsive design.
+The `Header` component provides the main navigation bar for the application, including authentication, navigation menu and responsive design.
 
 ### Props Interface
 
 ```typescript
-// Header component không có props - sử dụng global state
+// Header component has no props - uses global state
 interface HeaderProps {
   // No props - component is self-contained
 }
@@ -21,7 +21,7 @@ interface HeaderProps {
 
 ### Features
 
-- **Responsive Design** - Mobile và desktop layouts
+- **Responsive Design** - Mobile and desktop layouts
 - **Authentication Integration** - Clerk sign-in/sign-out
 - **Navigation Menu** - Dynamic menu based on user role
 - **Admin Access** - Admin panel access for admin users
@@ -67,12 +67,12 @@ const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
 
 ### Overview
 
-`AuthStatus` component hiển thị trạng thái authentication của user, bao gồm Clerk và Firebase authentication status.
+The `AuthStatus` component displays the authentication status of the user, including Clerk and Firebase authentication status.
 
 ### Props Interface
 
 ```typescript
-// AuthStatus component không có props
+// AuthStatus component has no props
 interface AuthStatusProps {
   // No props - component is self-contained
 }
@@ -80,9 +80,9 @@ interface AuthStatusProps {
 
 ### Features
 
-- **Dual Authentication Status** - Hiển thị cả Clerk và Firebase status
-- **Real-time Updates** - Cập nhật real-time khi auth state thay đổi
-- **Debug Information** - Hiển thị thông tin debug cho developers
+- **Dual Authentication Status** - Display both Clerk and Firebase status
+- **Real-time Updates** - Real-time updates when auth state changes
+- **Debug Information** - Display debug information for developers
 
 ### Usage Example
 
@@ -359,13 +359,13 @@ test('should not have accessibility violations', async () => {
 - `@emotion/react` - CSS-in-JS styling
 - `@emotion/styled` - Styled components
 - `@clerk/nextjs` - Authentication components
-- `react` - React hooks và components
+- `react` - React hooks and components
 
 ## Best Practices
 
-1. **Consistent Spacing** - Sử dụng theme spacing units
+1. **Consistent Spacing** - Use theme spacing units
 2. **Responsive Design** - Mobile-first approach
-3. **Accessibility** - ARIA labels và keyboard navigation
-4. **Performance** - Memoization và lazy loading
+3. **Accessibility** - ARIA labels and keyboard navigation
+4. **Performance** - Memoization and lazy loading
 5. **Error Handling** - Graceful error states
 6. **Loading States** - User feedback during async operations

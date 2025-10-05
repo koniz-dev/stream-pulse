@@ -2,56 +2,56 @@
 
 ## 📚 Documentation Overview
 
-Chào mừng đến với tài liệu StreamPulse! Đây là bộ tài liệu hoàn chỉnh cho nền tảng live streaming với chat real-time.
+Welcome to StreamPulse documentation! This is a comprehensive documentation for the live streaming platform with real-time chat.
 
-## 🎯 StreamPulse là gì?
+## 🎯 What is StreamPulse?
 
-StreamPulse là một nền tảng live streaming hiện đại được xây dựng với Next.js 15, tích hợp video streaming (HLS) và chat real-time. Ứng dụng sử dụng kiến trúc microservices với Clerk authentication, Firebase Realtime Database, và Video.js player.
+StreamPulse is a modern live streaming platform built with Next.js 15, integrating video streaming (HLS) and real-time chat. The application uses a microservices architecture with Clerk authentication, Firebase Realtime Database, and Video.js player.
 
-## 📖 Tài liệu có sẵn
+## 📖 Available Documentation
 
 ### 🔌 API Documentation
-- **[Authentication API](./api/authentication.md)** - Hướng dẫn sử dụng authentication endpoints
-- **[Chat API](./api/chat-api.md)** - Tài liệu về real-time chat system
-- **[Video API](./api/video-api.md)** - Hướng dẫn video streaming và Video.js
+- **[Authentication API](./api/authentication.md)** - Guide for using authentication endpoints
+- **[Chat API](./api/chat-api.md)** - Documentation for real-time chat system
+- **[Video API](./api/video-api.md)** - Guide for video streaming and Video.js
 
 ### 🧩 Component Documentation
-- **[VideoPlayer Component](./components/video-player.md)** - Hướng dẫn sử dụng VideoPlayer component
-- **[Chat Component](./components/chat-component.md)** - Tài liệu Chat component và real-time features
-- **[UI Components](./components/ui-components.md)** - Hướng dẫn các UI components và Material-UI integration
+- **[VideoPlayer Component](./components/video-player.md)** - Guide for using VideoPlayer component
+- **[Chat Component](./components/chat-component.md)** - Chat component documentation and real-time features
+- **[UI Components](./components/ui-components.md)** - Guide for UI components and Material-UI integration
 
 ### 🔧 Troubleshooting
-- **[Common Issues](./troubleshooting/common-issues.md)** - Giải quyết các vấn đề thường gặp
-- **[Performance Guide](./troubleshooting/performance.md)** - Tối ưu hóa performance
-- **[Debugging Guide](./troubleshooting/debugging.md)** - Hướng dẫn debug và monitoring
+- **[Common Issues](./troubleshooting/common-issues.md)** - Resolving common issues
+- **[Performance Guide](./troubleshooting/performance.md)** - Performance optimization
+- **[Debugging Guide](./troubleshooting/debugging.md)** - Debug and monitoring guide
 
 ### 🏗️ Architecture
-- **[System Overview](./architecture/system-overview.md)** - Tổng quan kiến trúc hệ thống
-- **[Data Flow](./architecture/data-flow.md)** - Luồng dữ liệu và state management
-- **[Technology Stack](./architecture/tech-stack.md)** - Chi tiết về technology stack
+- **[System Overview](./architecture/system-overview.md)** - System architecture overview
+- **[Data Flow](./architecture/data-flow.md)** - Data flow and state management
+- **[Technology Stack](./architecture/tech-stack.md)** - Technology stack details
 
 ## 🚀 Quick Start
 
-### 1. Cài đặt
+### 1. Installation
 ```bash
 git clone https://github.com/koniz-dev/stream-pulse.git
 cd stream-pulse
 npm install
 ```
 
-### 2. Cấu hình Environment
+### 2. Environment Configuration
 ```bash
 cp .env.example .env.local
-# Cập nhật các biến môi trường cần thiết
+# Update the necessary environment variables
 ```
 
-### 3. Chạy Development Server
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
 
-### 4. Truy cập ứng dụng
-Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
+### 4. Access the Application
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🛠️ Tech Stack
 
@@ -66,7 +66,7 @@ Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
 ## 📋 Features
 
 ### 🎬 Video Streaming
-- HLS video streaming với Video.js
+- HLS video streaming with Video.js
 - Adaptive bitrate streaming
 - Professional video controls
 - Mobile responsive design
@@ -75,7 +75,7 @@ Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
 - Firebase Realtime Database
 - Real-time message synchronization
 - User authentication integration
-- Message history và moderation
+- Message history and moderation
 
 ### 🔐 Authentication
 - Clerk primary authentication
@@ -91,9 +91,9 @@ Mở [http://localhost:3000](http://localhost:3000) trong trình duyệt.
 
 ## 🔍 Debug Tools
 
-StreamPulse cung cấp admin debug panel tại `/admin/debug` với các tính năng:
+StreamPulse provides an admin debug panel at `/admin/debug` with the following features:
 
-- **Authentication Testing** - Test Clerk và Firebase auth
+- **Authentication Testing** - Test Clerk and Firebase auth
 - **Video Player Debug** - Monitor video player state
 - **Chat System Debug** - Test real-time chat
 - **Performance Monitoring** - Track performance metrics
@@ -107,21 +107,21 @@ StreamPulse cung cấp admin debug panel tại `/admin/debug` với các tính n
 ## 🤝 Contributing
 
 1. Fork repository
-2. Tạo feature branch
+2. Create feature branch
 3. Commit changes
 4. Push to branch
-5. Tạo Pull Request
+5. Create Pull Request
 
 ## 📄 License
 
-Dự án này được phân phối dưới MIT License. Xem file `LICENSE` để biết thêm chi tiết.
+This project is distributed under the MIT License. See the `LICENSE` file for more details.
 
 ## 🆘 Support
 
-- **Documentation**: Xem các tài liệu trong thư mục `docs/`
-- **Issues**: Tạo issue trên GitHub
-- **Discussions**: Tham gia GitHub Discussions
-- **Email**: Liên hệ qua email
+- **Documentation**: See documentation in the `docs/` directory
+- **Issues**: Create an issue on GitHub
+- **Discussions**: Join GitHub Discussions
+- **Email**: Contact via email
 
 ## 🔗 Links
 
@@ -137,4 +137,4 @@ Dự án này được phân phối dưới MIT License. Xem file `LICENSE` đ�
 
 ---
 
-**StreamPulse** - Modern live streaming platform với real-time chat capabilities. Built with ❤️ using Next.js, Firebase, và Video.js.
+**StreamPulse** - Modern live streaming platform with real-time chat capabilities. Built with ❤️ using Next.js, Firebase, and Video.js.

@@ -2,7 +2,7 @@
 
 ## Overview
 
-StreamPulse sử dụng kiến trúc data flow phức tạp với multiple data sources và real-time synchronization. Tài liệu này mô tả chi tiết cách data di chuyển qua các layers của hệ thống.
+StreamPulse uses a complex data flow architecture with multiple data sources and real-time synchronization. This document describes in detail how data moves through the system layers.
 
 ## Authentication Data Flow
 

@@ -2,16 +2,16 @@
 
 ## Overview
 
-`VideoPlayer` là component chính để phát video live stream sử dụng Video.js với HLS support. Component này cung cấp giao diện video player hoàn chỉnh với các controls và event handling.
+The `VideoPlayer` component is the main component for playing live stream videos using Video.js with HLS support. This component provides a complete video player interface with controls and event handling.
 
 ## Props Interface
 
 ```typescript
 interface VideoPlayerProps {
-  streamUrl: string;           // URL của HLS stream
-  className?: string;          // CSS class tùy chỉnh
-  onReady?: (player: any) => void;  // Callback khi player sẵn sàng
-  onError?: (error: any) => void;   // Callback khi có lỗi
+  streamUrl: string;           // URL of the HLS stream
+  className?: string;          // Custom CSS class
+  onReady?: (player: any) => void;  // Callback when player is ready
+  onError?: (error: any) => void;   // Callback when there is an error
 }
 ```
 
@@ -82,20 +82,20 @@ const videoJsOptions = {
 
 ### Event Handling
 
-Component tự động xử lý các events sau:
+The component automatically handles the following events:
 
-- **ready** - Player sẵn sàng
-- **play** - Bắt đầu phát
-- **pause** - Tạm dừng
-- **timeupdate** - Cập nhật thời gian
-- **loadedmetadata** - Metadata đã load
-- **volumechange** - Thay đổi volume
-- **ratechange** - Thay đổi tốc độ phát
-- **error** - Lỗi phát video
+- **ready** - Player is ready
+- **play** - Start playing
+- **pause** - Pause
+- **timeupdate** - Time update
+- **loadedmetadata** - Metadata loaded
+- **volumechange** - Volume change
+- **ratechange** - Playback rate change
+- **error** - Video playback error
 
 ### State Management
 
-Component sử dụng Zustand store để quản lý state:
+The component uses Zustand store for state management:
 
 ```typescript
 const {
@@ -117,20 +117,20 @@ const {
 ### CSS Classes
 
 - `.vjs-default-skin` - Video.js default skin
-- Custom className được apply cho container
+- Custom className is applied to the container
 
 ### Responsive Design
 
-- `responsive: true` - Player tự động resize theo container
-- `fluid: true` - Player sử dụng aspect ratio 16:9
+- `responsive: true` - Player automatically resizes according to container
+- `fluid: true` - Player uses 16:9 aspect ratio
 
 ## Error Handling
 
 ### Error Types
 
-1. **Network Error** - Không thể kết nối đến stream
-2. **Codec Error** - Browser không support codec
-3. **Stream Error** - Stream không tồn tại hoặc offline
+1. **Network Error** - Cannot connect to stream
+2. **Codec Error** - Browser does not support codec
+3. **Stream Error** - Stream does not exist or is offline
 
 ### Error Display
 
@@ -167,33 +167,33 @@ useEffect(() => {
 
 ### Loading States
 
-- Hiển thị loading spinner khi đang khởi tạo player
-- Tự động ẩn loading khi player ready hoặc có lỗi
+- Display loading spinner when initializing player
+- Automatically hide loading when player is ready or has error
 
 ## Browser Compatibility
 
 ### HLS Support
 
 - **Safari**: Native HLS support
-- **Chrome/Firefox/Edge**: Sử dụng Video.js HLS plugin
-- **Mobile**: Hỗ trợ đầy đủ trên iOS/Android
+- **Chrome/Firefox/Edge**: Uses Video.js HLS plugin
+- **Mobile**: Full support on iOS/Android
 
 ### Fallback
 
-Nếu HLS không được support, component sẽ hiển thị error message.
+If HLS is not supported, the component will display an error message.
 
 ## Testing
 
 ### Manual Testing
 
-1. **Stream Loading** - Test với các stream URLs khác nhau
-2. **Controls** - Test tất cả player controls
-3. **Responsive** - Test trên các screen sizes khác nhau
-4. **Error Scenarios** - Test với invalid URLs
+1. **Stream Loading** - Test with different stream URLs
+2. **Controls** - Test all player controls
+3. **Responsive** - Test on different screen sizes
+4. **Error Scenarios** - Test with invalid URLs
 
 ### Debug Tools
 
-Sử dụng admin debug panel để:
+Use the admin debug panel to:
 - Monitor player state
 - Test different streams
 - View player events
@@ -204,9 +204,9 @@ Sử dụng admin debug panel để:
 - `video.js` - Video player library
 - `@mui/material` - UI components
 - `zustand` - State management
-- `react` - React hooks và lifecycle
+- `react` - React hooks and lifecycle
 
 ## Related Components
 
-- `VideoWrapper` - Wrapper component với error handling
+- `VideoWrapper` - Wrapper component with error handling
 - `VideoDebug` - Debug component cho admin panel

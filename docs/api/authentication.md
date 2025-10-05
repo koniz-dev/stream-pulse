@@ -2,13 +2,13 @@
 
 ## Overview
 
-StreamPulse sử dụng hệ thống authentication kép với Clerk và Firebase. Clerk xử lý authentication chính, trong khi Firebase được sử dụng cho real-time features như chat.
+StreamPulse uses a dual authentication system with Clerk and Firebase. Clerk handles primary authentication, while Firebase is used for real-time features like chat.
 
 ## API Endpoints
 
 ### POST `/api/auth/firebase-token`
 
-Tạo custom token cho Firebase authentication dựa trên Clerk user session.
+Create a custom token for Firebase authentication based on the Clerk user session.
 
 #### Request
 
@@ -18,7 +18,7 @@ Tạo custom token cho Firebase authentication dựa trên Clerk user session.
 Content-Type: application/json
 ```
 
-**Authentication:** Yêu cầu Clerk session hợp lệ
+**Authentication:** Requires valid Clerk session
 
 #### Response
 
@@ -69,17 +69,17 @@ await signInWithCustomToken(auth, customToken);
 
 ## Authentication Flow
 
-1. **User signs in with Clerk** - Clerk xử lý authentication chính
-2. **Frontend calls `/api/auth/firebase-token`** - Lấy custom token từ server
-3. **Sign in to Firebase with custom token** - Sử dụng token để authenticate với Firebase
+1. **User signs in with Clerk** - Clerk handles primary authentication
+2. **Frontend calls `/api/auth/firebase-token`** - Get custom token from server
+3. **Sign in to Firebase with custom token** - Use token to authenticate with Firebase
 4. **Access Firebase services** - Chat, real-time features, etc.
 
 ## Security Notes
 
-- Custom token chỉ có thể được tạo bởi server với Firebase Admin SDK
-- Token có thời hạn và sẽ expire
-- Mỗi token được tạo với `clerk_user_id` claim để mapping với Clerk user
-- API endpoint được bảo vệ bởi Clerk middleware
+- Custom token can only be created by server with Firebase Admin SDK
+- Token has expiration and will expire
+- Each token is created with `clerk_user_id` claim to map with Clerk user
+- API endpoint is protected by Clerk middleware
 
 ## Error Handling
 
@@ -87,15 +87,15 @@ await signInWithCustomToken(auth, customToken);
 
 1. **No Clerk Session**
    - Status: 401
-   - Solution: User cần sign in với Clerk trước
+   - Solution: User needs to sign in with Clerk first
 
 2. **Firebase Admin SDK Error**
    - Status: 500
-   - Solution: Kiểm tra Firebase service account configuration
+   - Solution: Check Firebase service account configuration
 
 3. **Invalid Custom Token**
    - Status: 500
-   - Solution: Kiểm tra Firebase project configuration
+   - Solution: Check Firebase project configuration
 
 ## Environment Variables Required
 
@@ -115,8 +115,8 @@ FIREBASE_UNIVERSE_DOMAIN=googleapis.com
 
 ## Testing
 
-Sử dụng admin debug panel tại `/admin/debug` để test authentication flow:
+Use the admin debug panel at `/admin/debug` to test authentication flow:
 
 1. Test API endpoint
-2. Test Firebase sign-in với custom token
+2. Test Firebase sign-in with custom token
 3. Verify user authentication state

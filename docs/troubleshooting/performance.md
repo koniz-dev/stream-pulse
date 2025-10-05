@@ -2,7 +2,7 @@
 
 ## Overview
 
-StreamPulse là một ứng dụng real-time với video streaming và chat, đòi hỏi tối ưu hóa performance để đảm bảo trải nghiệm người dùng mượt mà. Hướng dẫn này cung cấp các kỹ thuật tối ưu hóa cho các thành phần chính.
+StreamPulse is a real-time application with video streaming and chat, requiring performance optimization to ensure a smooth user experience. This guide provides optimization techniques for the main components.
 
 ## Video Player Performance
 
@@ -10,7 +10,7 @@ StreamPulse là một ứng dụng real-time với video streaming và chat, đ�
 
 **Lazy Loading**
 ```javascript
-// Chỉ khởi tạo player khi cần thiết
+// Only initialize player when needed
 const [shouldLoadPlayer, setShouldLoadPlayer] = useState(false);
 
 useEffect(() => {
@@ -94,7 +94,7 @@ playerInstance.on('progress', () => {
 
 **Limit Message History**
 ```javascript
-// Chỉ load 100 tin nhắn gần nhất
+// Only load the last 100 messages
 const messagesQuery = query(
   messagesRef,
   orderByChild('timestamp'),
@@ -104,7 +104,7 @@ const messagesQuery = query(
 
 **Virtual Scrolling**
 ```javascript
-// Implement virtual scrolling cho large message lists
+// Implement virtual scrolling for large message lists
 import { FixedSizeList as List } from 'react-window';
 
 const MessageList = ({ messages }) => (
@@ -144,7 +144,7 @@ const debouncedSendMessage = useCallback((message) => {
 
 **Efficient Listeners**
 ```javascript
-// Sử dụng specific queries thay vì listen to entire database
+// Use specific queries instead of listening to entire database
 const messagesRef = ref(database, 'chat/messages');
 const messagesQuery = query(
   messagesRef,

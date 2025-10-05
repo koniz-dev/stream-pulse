@@ -2,7 +2,7 @@
 
 ## Overview
 
-StreamPulse sử dụng Video.js với HLS (HTTP Live Streaming) để phát video live stream. Không có REST API endpoints cho video streaming - tất cả được xử lý trực tiếp qua Video.js player.
+StreamPulse uses Video.js with HLS (HTTP Live Streaming) to play live stream videos. There are no REST API endpoints for video streaming - everything is handled directly through the Video.js player.
 
 ## Video Player Configuration
 
@@ -318,7 +318,7 @@ useEffect(() => {
 
 ### Debug Tools
 
-Use admin debug panel tại `/admin/debug` để:
+Use the admin debug panel at `/admin/debug` to:
 - Monitor player state
 - Test different stream URLs
 - Debug playback issues

@@ -2,14 +2,14 @@
 
 ## Overview
 
-StreamPulse được xây dựng với modern web technologies, tập trung vào performance, scalability, và developer experience. Technology stack được chọn để hỗ trợ real-time features, video streaming, và responsive design.
+StreamPulse is built with modern web technologies, focusing on performance, scalability, and developer experience. The technology stack is chosen to support real-time features, video streaming, and responsive design.
 
 ## Frontend Technologies
 
 ### Core Framework
 
 **Next.js 15**
-- **Purpose**: React framework với App Router
+- **Purpose**: React framework with App Router
 - **Benefits**: 
   - Server-side rendering (SSR)
   - Static site generation (SSG)
@@ -28,12 +28,12 @@ StreamPulse được xây dựng với modern web technologies, tập trung vào
 - **Version**: 19.1.0
 
 **TypeScript**
-- **Purpose**: Type safety và better DX
+- **Purpose**: Type safety and better DX
 - **Benefits**:
   - Compile-time error checking
   - Better IDE support
   - Improved code maintainability
-- **Usage**: Type definitions cho toàn bộ codebase
+- **Usage**: Type definitions for the entire codebase
 - **Version**: 5.x
 
 ### UI Framework
@@ -45,7 +45,7 @@ StreamPulse được xây dựng với modern web technologies, tập trung vào
   - Accessibility built-in
   - Responsive components
   - Theme customization
-- **Usage**: UI components và theming
+- **Usage**: UI components and theming
 - **Version**: 7.3.4
 
 **Tailwind CSS**
@@ -55,7 +55,7 @@ StreamPulse được xây dựng với modern web technologies, tập trung vào
   - Consistent spacing
   - Responsive design
   - Customizable
-- **Usage**: Styling và responsive design
+- **Usage**: Styling and responsive design
 - **Version**: 4.x
 
 **Emotion**
@@ -146,7 +146,7 @@ StreamPulse được xây dựng với modern web technologies, tập trung vào
   - Offline support
   - Security rules
   - Scalable
-- **Usage**: Chat messages và real-time data
+- **Usage**: Chat messages and real-time data
 - **Version**: 12.3.0
 
 **Firebase Admin SDK**

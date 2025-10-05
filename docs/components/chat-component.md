@@ -2,12 +2,12 @@
 
 ## Overview
 
-`Chat` component cung cấp giao diện real-time chat cho StreamPulse. Component này sử dụng Firebase Realtime Database để gửi và nhận messages, tích hợp với Clerk authentication để xác thực người dùng.
+The `Chat` component provides a real-time chat interface for StreamPulse. This component uses Firebase Realtime Database to send and receive messages, integrating with Clerk authentication for user verification.
 
 ## Props Interface
 
 ```typescript
-// Chat component không có props - sử dụng global state và hooks
+// Chat component has no props - uses global state and hooks
 interface ChatProps {
   // No props - component is self-contained
 }
@@ -32,10 +32,10 @@ function MyComponent() {
 
 ### Real-time Messaging
 
-- **Send Messages** - Gửi tin nhắn real-time
-- **Receive Messages** - Nhận tin nhắn từ người dùng khác
-- **Auto-scroll** - Tự động scroll xuống tin nhắn mới
-- **Message History** - Hiển thị 100 tin nhắn gần nhất
+- **Send Messages** - Send real-time messages
+- **Receive Messages** - Receive messages from other users
+- **Auto-scroll** - Automatically scroll to new messages
+- **Message History** - Display the last 100 messages
 
 ### Authentication Integration
 
@@ -43,7 +43,7 @@ function MyComponent() {
 const { user: clerkUser } = useUser();
 const { firebaseUser } = useFirebaseAuth();
 
-// Chỉ hiển thị chat khi user đã đăng nhập
+// Only show chat when user is logged in
 if (!clerkUser) {
   return (
     <Alert severity="info">
@@ -238,7 +238,7 @@ useEffect(() => {
 ### Message Loading
 
 ```tsx
-// Chỉ load 100 tin nhắn gần nhất
+// Only load the last 100 messages
 const messagesQuery = query(
   messagesRef,
   orderByChild('timestamp'),
@@ -265,7 +265,7 @@ useEffect(() => {
 ### Debouncing
 
 ```tsx
-// Debounce message sending để tránh spam
+// Debounce message sending to prevent spam
 const [isSending, setIsSending] = useState(false);
 ```
 
@@ -274,15 +274,15 @@ const [isSending, setIsSending] = useState(false);
 ### Common Error Scenarios
 
 1. **Authentication Error**
-   - User chưa đăng nhập
+   - User not logged in
    - Firebase authentication failed
 
 2. **Network Error**
-   - Mất kết nối Firebase
-   - Timeout khi gửi message
+   - Lost Firebase connection
+   - Timeout when sending message
 
 3. **Permission Error**
-   - User không có quyền gửi message
+   - User does not have permission to send messages
    - Database rules block access
 
 ### Error Display
@@ -299,7 +299,7 @@ const [isSending, setIsSending] = useState(false);
 
 ### Material-UI Components
 
-- `Paper` - Container với elevation
+- `Paper` - Container with elevation
 - `Typography` - Text styling
 - `TextField` - Message input
 - `Button` - Send button
@@ -325,15 +325,15 @@ const [isSending, setIsSending] = useState(false);
 
 ### Manual Testing
 
-1. **Send Messages** - Test gửi tin nhắn
-2. **Real-time Updates** - Test với multiple users
-3. **Authentication** - Test với/không đăng nhập
+1. **Send Messages** - Test sending messages
+2. **Real-time Updates** - Test with multiple users
+3. **Authentication** - Test with/without login
 4. **Error Scenarios** - Test network errors
-5. **Mobile** - Test trên mobile devices
+5. **Mobile** - Test on mobile devices
 
 ### Debug Tools
 
-Sử dụng admin debug panel để:
+Use the admin debug panel to:
 - Monitor chat connection
 - View message history
 - Test message sending

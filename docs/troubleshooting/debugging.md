@@ -2,7 +2,7 @@
 
 ## Overview
 
-Hướng dẫn debugging cho StreamPulse bao gồm các công cụ và kỹ thuật để debug các vấn đề trong authentication, video streaming, chat, và performance.
+The debugging guide for StreamPulse includes tools and techniques to debug issues in authentication, video streaming, chat, and performance.
 
 ## Debug Tools
 

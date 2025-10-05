@@ -2,7 +2,7 @@
 
 ## Overview
 
-StreamPulse sử dụng Firebase Realtime Database để xử lý real-time chat. Không có REST API endpoints cho chat - tất cả được xử lý trực tiếp qua Firebase client SDK.
+StreamPulse uses Firebase Realtime Database to handle real-time chat. There are no REST API endpoints for chat - everything is handled directly through the Firebase client SDK.
 
 ## Firebase Database Structure
 
@@ -215,7 +215,7 @@ const sendMessageWithRateLimit = async (message, userId, username, avatar) => {
 
 ### Debug Tools
 
-Use admin debug panel tại `/admin/debug` để:
+Use the admin debug panel at `/admin/debug` to:
 - Monitor Firebase connection status
 - View real-time database structure
 - Test message sending/receiving

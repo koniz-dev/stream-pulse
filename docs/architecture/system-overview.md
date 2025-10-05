@@ -2,7 +2,7 @@
 
 ## Overview
 
-StreamPulse là một nền tảng live streaming với chat real-time được xây dựng trên Next.js 15, sử dụng kiến trúc microservices với các service chính: Authentication (Clerk), Real-time Database (Firebase), và Video Streaming (Video.js + HLS).
+StreamPulse is a live streaming platform with real-time chat built on Next.js 15, using a microservices architecture with main services: Authentication (Clerk), Real-time Database (Firebase), and Video Streaming (Video.js + HLS).
 
 ## High-Level Architecture
 
@@ -33,20 +33,20 @@ StreamPulse là một nền tảng live streaming với chat real-time được 
 ## Technology Stack
 
 ### Frontend
-- **Next.js 15** - React framework với App Router
-- **React 19** - UI library với latest features
-- **TypeScript** - Type safety và better DX
+- **Next.js 15** - React framework with App Router
+- **React 19** - UI library with latest features
+- **TypeScript** - Type safety and better DX
 - **Material-UI (MUI)** - UI component library
 - **Tailwind CSS** - Utility-first CSS framework
 - **Zustand** - Lightweight state management
 
 ### Authentication
 - **Clerk** - Primary authentication service
-- **Firebase Auth** - Secondary authentication cho real-time features
-- **Custom Token API** - Bridge giữa Clerk và Firebase
+- **Firebase Auth** - Secondary authentication for real-time features
+- **Custom Token API** - Bridge between Clerk and Firebase
 
 ### Real-time Features
-- **Firebase Realtime Database** - Real-time chat và data sync
+- **Firebase Realtime Database** - Real-time chat and data sync
 - **WebSocket-like connections** - Real-time updates
 
 ### Video Streaming
@@ -55,7 +55,7 @@ StreamPulse là một nền tảng live streaming với chat real-time được 
 - **External CDN** - Video content delivery
 
 ### Development & Build
-- **Turbopack** - Fast bundler cho development
+- **Turbopack** - Fast bundler for development
 - **ESLint** - Code linting
 - **PostCSS** - CSS processing
 
@@ -214,13 +214,13 @@ POST /api/auth/firebase-token
 ### Authentication Security
 
 1. **Clerk Authentication**
-   - JWT tokens với expiration
+   - JWT tokens with expiration
    - Secure session management
    - Role-based access control
 
 2. **Firebase Security**
-   - Custom tokens với limited scope
-   - Database rules cho access control
+   - Custom tokens with limited scope
+   - Database rules for access control
    - Real-time security rules
 
 3. **API Security**
