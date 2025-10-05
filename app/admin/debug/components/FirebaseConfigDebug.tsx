@@ -59,7 +59,7 @@ export function FirebaseConfigDebug() {
 
       {/* Config Values */}
       <Box mb={2}>
-        <Typography variant="subtitle2" gutterBottom>Configuration Values</Typography>
+        <Typography variant="subtitle2" gutterBottom>Configuration Status</Typography>
         <Stack spacing={1}>
           {Object.entries(firebaseConfig).map(([key, value]) => (
             <Box key={key} display="flex" alignItems="center" gap={1}>
@@ -67,7 +67,7 @@ export function FirebaseConfigDebug() {
                 {key}:
               </Typography>
               <Chip 
-                label={value ? `${value.toString().substring(0, 20)}...` : 'undefined'} 
+                label={value ? '✅ Configured' : '❌ Missing'} 
                 color={value ? 'success' : 'error'} 
                 size="small" 
                 variant="outlined"
@@ -77,10 +77,10 @@ export function FirebaseConfigDebug() {
         </Stack>
       </Box>
 
-      {/* Raw Config */}
+      {/* Environment Info */}
       <Accordion>
         <AccordionSummary expandIcon={<span>▼</span>}>
-          <Typography variant="subtitle2">Raw Configuration Object</Typography>
+          <Typography variant="subtitle2">Environment Information</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Box component="pre" sx={{ 
@@ -90,7 +90,15 @@ export function FirebaseConfigDebug() {
             p: 2, 
             borderRadius: 1 
           }}>
-            {JSON.stringify(firebaseConfig, null, 2)}
+            {JSON.stringify({
+              nodeEnv: process.env.NODE_ENV,
+              hasApiKey: !!firebaseConfig.apiKey,
+              hasAuthDomain: !!firebaseConfig.authDomain,
+              hasProjectId: !!firebaseConfig.projectId,
+              hasAppId: !!firebaseConfig.appId,
+              configKeysCount: Object.keys(firebaseConfig).length,
+              missingKeysCount: missingConfigKeys.length
+            }, null, 2)}
           </Box>
         </AccordionDetails>
       </Accordion>
