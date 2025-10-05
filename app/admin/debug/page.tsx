@@ -10,12 +10,12 @@ import {
   Divider
 } from '@mui/material';
 import { useUser } from '@clerk/nextjs';
-import { FirebaseConfigDebug } from './components/FirebaseConfigDebug';
-import { FirebaseAuthDebug } from './components/FirebaseAuthDebug';
-import { CustomTokenDebug } from './components/CustomTokenDebug';
-import { VideoPlayerDebug } from './components/VideoPlayerDebug';
-import { SystemInfoDebug } from './components/SystemInfoDebug';
-import { ChatManagementDebug } from './components/ChatManagementDebug';
+import { FirebaseConfig } from './components/FirebaseConfig';
+import { FirebaseAuth } from './components/FirebaseAuth';
+import { CustomToken } from './components/CustomToken';
+import { VideoDebug } from './components/VideoDebug';
+import { SystemInfo } from './components/SystemInfo';
+import { ChatManagement } from './components/ChatManagement';
 
 export default function AdminDebugPage() {
   const { user, isLoaded } = useUser();
@@ -78,42 +78,42 @@ export default function AdminDebugPage() {
           {/* System Info */}
           <Grid size={{ xs: 12 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <SystemInfoDebug />
+              <SystemInfo />
             </Paper>
           </Grid>
 
           {/* Firebase Config */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <FirebaseConfigDebug />
+              <FirebaseConfig />
             </Paper>
           </Grid>
 
           {/* Firebase Auth */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <FirebaseAuthDebug />
+              <FirebaseAuth />
             </Paper>
           </Grid>
 
           {/* Custom Token */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <CustomTokenDebug />
+              <CustomToken />
             </Paper>
           </Grid>
 
           {/* Video Player */}
           <Grid size={{ xs: 12, md: 6 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <VideoPlayerDebug />
+              <VideoDebug />
             </Paper>
           </Grid>
 
           {/* Chat Management */}
           <Grid size={{ xs: 12 }}>
             <Paper elevation={3} sx={{ p: 3 }}>
-              <ChatManagementDebug />
+              <ChatManagement />
             </Paper>
           </Grid>
         </Grid>

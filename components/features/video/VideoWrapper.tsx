@@ -17,7 +17,7 @@ import {
 } from '@mui/icons-material';
 import VideoPlayer from './VideoPlayer';
 
-interface VideoPlayerWrapperProps {
+interface VideoWrapperProps {
   streamUrl?: string;
   className?: string;
 }
@@ -29,10 +29,10 @@ const DEMO_STREAMS = {
   testStream: 'https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8',
 };
 
-export default function VideoPlayerWrapper({ 
+export default function VideoWrapper({ 
   streamUrl = DEMO_STREAMS.bigBuckBunny,
   className = ''
-}: VideoPlayerWrapperProps) {
+}: VideoWrapperProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 

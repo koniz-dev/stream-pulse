@@ -19,7 +19,7 @@ import {
 } from '@mui/material';
 import { useVideoStore } from '@/stores';
 
-export function VideoPlayerDebug() {
+export function VideoDebug() {
   const { player, isLoading, error } = useVideoStore();
   const [testStreamUrl, setTestStreamUrl] = useState('');
   const [testResult, setTestResult] = useState<string>('');

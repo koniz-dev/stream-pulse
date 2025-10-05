@@ -12,7 +12,7 @@ import {
   AccordionDetails
 } from '@mui/material';
 
-export function SystemInfoDebug() {
+export function SystemInfo() {
   const [systemInfo, setSystemInfo] = useState<any>(null);
 
   const gatherSystemInfo = () => {

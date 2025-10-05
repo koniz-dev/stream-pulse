@@ -16,7 +16,7 @@ import { signInAnonymously, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
 
-export function FirebaseAuthDebug() {
+export function FirebaseAuth() {
   const { firebaseUser, isLoading, error, isAuthenticated } = useFirebaseAuth();
   const [testResult, setTestResult] = useState<string>('');
   const [testLoading, setTestLoading] = useState(false);

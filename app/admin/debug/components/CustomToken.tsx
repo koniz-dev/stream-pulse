@@ -15,7 +15,7 @@ import {
 import { signInWithCustomToken } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 
-export function CustomTokenDebug() {
+export function CustomToken() {
   const [testResult, setTestResult] = useState<string>('');
   const [testLoading, setTestLoading] = useState(false);
   const [customToken, setCustomToken] = useState<string>('');
@@ -132,9 +132,11 @@ export function CustomTokenDebug() {
             value={customToken}
             variant="outlined"
             size="small"
-            InputProps={{
-              readOnly: true,
-              sx: { fontFamily: 'monospace', fontSize: '0.75rem' }
+            slotProps={{
+              input: {
+                readOnly: true,
+                sx: { fontFamily: 'monospace', fontSize: '0.75rem' }
+              }
             }}
           />
         </Box>

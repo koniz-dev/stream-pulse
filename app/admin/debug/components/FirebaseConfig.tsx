@@ -10,7 +10,7 @@ import {
   Alert
 } from '@mui/material';
 
-export function FirebaseConfigDebug() {
+export function FirebaseConfig() {
 
   const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,

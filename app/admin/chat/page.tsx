@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
-import { ChatManagementDebug } from '../debug/components/ChatManagementDebug';
+import { ChatManagement } from '../debug/components/ChatManagement';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
@@ -87,7 +87,7 @@ export default function AdminChatPage() {
         </Box>
 
         {/* Chat Management Component */}
-        <ChatManagementDebug />
+        <ChatManagement />
 
         {/* Footer */}
         <Box mt={4} textAlign="center">

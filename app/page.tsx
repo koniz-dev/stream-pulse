@@ -8,7 +8,7 @@ import {
   Paper,
   Fade
 } from '@mui/material';
-import { VideoPlayerWrapper, Chat, Header } from '@/components';
+import { VideoWrapper, Chat, Header } from '@/components';
 
 export default function Home() {
 
@@ -31,7 +31,7 @@ export default function Home() {
             <Grid size={{ xs: 12, lg: 8 }}>
               <Fade in timeout={1000}>
                 <Box>
-                  <VideoPlayerWrapper />
+                  <VideoWrapper />
                   
                   {/* Stream Info */}
                   <Paper 

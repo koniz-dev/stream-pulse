@@ -32,7 +32,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MessageIcon from '@mui/icons-material/Message';
 
-export function ChatManagementDebug() {
+export function ChatManagement() {
   const { user: clerkUser } = useUser();
   const { firebaseUser } = useFirebaseAuth();
   const { 
