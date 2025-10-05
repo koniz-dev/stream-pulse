@@ -14,7 +14,6 @@ import {
   GitHub,
   Twitter,
   Email,
-  LiveTv,
   Code
 } from '@mui/icons-material';
 
@@ -41,19 +40,6 @@ export default function Footer() {
             justifyContent="space-between"
             alignItems={{ xs: 'center', md: 'flex-start' }}
           >
-            {/* Brand Section */}
-            <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-              <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
-                <LiveTv color="primary" />
-                <Typography variant="h6" fontWeight="bold" color="primary">
-                  StreamPulse
-                </Typography>
-              </Stack>
-              <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 300 }}>
-                Live streaming platform with real-time chat. Built with Next.js, Video.js, 
-                Firebase, and Clerk for the ultimate streaming experience.
-              </Typography>
-            </Box>
 
             {/* Links Section */}
             <Stack 

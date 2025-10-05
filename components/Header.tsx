@@ -21,8 +21,7 @@ import {
   Menu as MenuIcon,
   LiveTv,
   AdminPanelSettings,
-  BugReport,
-  Home
+  BugReport
 } from '@mui/icons-material';
 
 export default function Header() {
@@ -42,7 +41,6 @@ export default function Header() {
   };
 
   const navigationItems = [
-    { label: 'Home', href: '/', icon: <Home /> },
     { label: 'About', href: '/about', icon: null },
     ...(isAdmin ? [
       { label: 'Admin', href: '/admin', icon: <AdminPanelSettings /> },

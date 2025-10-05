@@ -197,26 +197,6 @@ export default function VideoPlayerWrapper({
           </Box>
         </Fade>
 
-        {/* Stream Info Overlay */}
-        <Fade in={!isLoading && !hasError}>
-          <Box sx={{ 
-            position: 'absolute', 
-            bottom: 16, 
-            left: 16, 
-            right: 16,
-            zIndex: 1,
-            background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-            borderRadius: 1,
-            p: 2
-          }}>
-            <Typography variant="h6" color="white" gutterBottom>
-              🎬 Big Buck Bunny
-            </Typography>
-            <Typography variant="body2" color="grey.300">
-              Demo HLS stream • 1080p • Live
-            </Typography>
-          </Box>
-        </Fade>
       </Paper>
     </Box>
   );
